@@ -73,7 +73,7 @@ public class Loading extends AppCompatActivity {
             }catch (Exception e)
             {}
 
-          //  Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+          ////  Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
             if(result.equals(session.getVoterId()))
             {
                 System.out.println("exe1");
