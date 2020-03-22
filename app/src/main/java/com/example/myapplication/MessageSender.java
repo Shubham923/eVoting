@@ -29,7 +29,7 @@ public class MessageSender extends AsyncTask<Void, Void, String> {
             DataInputStream dis = new DataInputStream(s.getInputStream());
             DataOutputStream dos = new DataOutputStream(s.getOutputStream());
 
-         //   dos.writeUTF("MH10512");
+            dos.writeUTF("MH10511");
             /*Code Segment for Processing Image*/
 
 

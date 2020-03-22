@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
-
 import com.example.myapplication.User;
 
 public class Session {
@@ -22,8 +21,7 @@ public class Session {
 
         SharedPreferences prefs = cntx.getSharedPreferences("MyPref", 0); // 0 - for private mode
         editor = prefs.edit();
-        sh
-                = cntx.getSharedPreferences("MyPref",
+        sh = cntx.getSharedPreferences("MyPref",
                 0);
 
     }
@@ -37,9 +35,6 @@ public class Session {
             editor.putString("emailId", user.getEmailId()).apply();
             editor.putInt("constId", user.getConstId()).apply();
             editor.commit();
-
-
-
         }
         else
         {
@@ -50,7 +45,6 @@ public class Session {
             editor.putString("emailId", "").apply();
             editor.putInt("constId", 0).apply();
             editor.commit();
-
         }
 
     }

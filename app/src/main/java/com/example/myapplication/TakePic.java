@@ -45,7 +45,9 @@ public class TakePic extends AppCompatActivity {
     File photoFile = null;
     BookLoading bl;
     static final int CAPTURE_IMAGE_REQUEST = 1;
-
+    Session session;
+    String result;
+    Intent intent;
     String mCurrentPhotoPath;
     private static final String IMAGE_DIRECTORY_NAME = "VLEMONN";
 
@@ -55,6 +57,12 @@ public class TakePic extends AppCompatActivity {
         setContentView(R.layout.activity_take_pic);
         imageView =  findViewById(R.id.imageView);
         button = findViewById(R.id.btnCaptureImage);
+        result="";
+        session=new Session(getApplicationContext());
+
+
+
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,6 +71,9 @@ public class TakePic extends AppCompatActivity {
                 }
             }
         });
+        session=new Session(getApplicationContext());
+
+       // Toast.makeText(this, session.getVoterId(),Toast.LENGTH_SHORT).show();
 
 
     }//onCreate
@@ -128,10 +139,36 @@ public class TakePic extends AppCompatActivity {
 
         /*ONLY AFTER TAKING PHOTO NEXT ACTIVITY WILL START*/
 
+        /*
+        try {
+            ImageSender is = new ImageSender();
+            is.execute(mCurrentPhotoPath);
+            MessageSender ms = new MessageSender();
+            result = ms.execute().get();
+        }catch (Exception e)
+        {}
 
-        Intent i = new Intent(getApplicationContext(),SendImage.class);
+        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
+        if(result.equals(session.getVoterId()))
+        {
+            intent=new Intent(getApplicationContext(), testActivity.class);
+            startActivity(intent);
+        }
+        else
+        {
+            Toast.makeText(getApplicationContext(),"Face Recognition Failed",Toast.LENGTH_SHORT).show();
+            intent=new Intent(getApplicationContext(), Activity_Login.class);
+
+            startActivity(intent);
+        }
+
+
+         */
+        Intent i = new Intent(getApplicationContext(),Loading.class);
         i.putExtra("img_title",mCurrentPhotoPath );
         startActivity(i);
+
+
     }
 
 

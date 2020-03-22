@@ -38,6 +38,7 @@ public class SendImage extends AppCompatActivity {
     private Button send;
     private TextView tv;
     private String result="";
+    Session session;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -8,6 +8,8 @@ package com.example.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,7 +28,7 @@ public class FetchUserInfo {
     public User getUserInfo(final Session session, String tvInput, final Context cntx)
     {
         Query query = FirebaseDatabase.getInstance().getReference("User")
-                .orderByChild("Name")
+                .orderByChild("voterId")
                 .equalTo(tvInput);
         user=new User();
 
@@ -39,8 +41,8 @@ public class FetchUserInfo {
                         user=data.getValue(User.class);
                         if(user!=null)
                         {
+                            Toast.makeText(cntx, "Voter ID Identified",Toast.LENGTH_SHORT).show();
                             session.setUser(user);
-                            System.out.println(user.getVoterId()+"should work");
                             Intent intent=new Intent(cntx, TakePic.class);
                             cntx.startActivity(intent);
                         }
@@ -53,7 +55,6 @@ public class FetchUserInfo {
                 else{
                     user=null;
                     session.setUser(user);
-                    System.out.println("Not Executed");
                 }
             }
 
@@ -64,6 +65,7 @@ public class FetchUserInfo {
         });
 
 
+        for(int i=0;i<100000;i++);
         return user;
     }
 

@@ -20,14 +20,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Loading"></activity>
+        <activity android:name=".Confirmation"></activity>
+        <activity android:name=".testActivity"></activity>
+        <activity android:name=".VotersList" />
         <activity android:name=".Activity_Login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".SendImage"></activity>
+        <activity android:name=".SendImage" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -40,7 +40,11 @@
         </provider>
 
         <activity android:name=".TakePic">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
     </application>

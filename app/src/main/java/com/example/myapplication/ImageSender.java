@@ -34,6 +34,14 @@ public class ImageSender  extends AsyncTask<String, Void, Void> {
 
                 sock = new Socket("192.168.43.40", SOCKET_PORT);
                 System.out.println("Accepted connection : " + sock);
+
+
+                DataInputStream dis = new DataInputStream(sock.getInputStream());
+                DataOutputStream dos = new DataOutputStream(sock.getOutputStream());
+
+                dos.writeUTF("MH10511");
+
+
                 // send file
                 File myFile = new File(FILE_TO_SEND);
                 byte [] mybytearray  = new byte [(int)myFile.length()];
